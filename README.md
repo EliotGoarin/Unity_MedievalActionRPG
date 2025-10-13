@@ -1,4 +1,4 @@
-# Medieval Action RPG (2D)
+# Unity Game : Medieval Action RPG (2D)
 
 This project is an early-stage 2D medieval action RPG built with Unity 6.2. The goal is to create a responsive movement system, basic combat mechanics, and an expandable world structure suitable for further development.
 
