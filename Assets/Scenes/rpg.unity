@@ -1751,7 +1751,7 @@ GameObject:
   - component: {fileID: 217514265}
   - component: {fileID: 217514266}
   - component: {fileID: 217514267}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6240,7 +6240,7 @@ Tilemap:
       - {fileID: 1421700660, guid: 150e0bb1eb28c884da2453389c6ddadf, type: 3}
       - {fileID: 1135254064, guid: 150e0bb1eb28c884da2453389c6ddadf, type: 3}
       - {fileID: 1243430451, guid: 150e0bb1eb28c884da2453389c6ddadf, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 23, y: -7, z: 0}
@@ -6525,7 +6525,7 @@ Tilemap:
       - {fileID: -1111419075, guid: 150e0bb1eb28c884da2453389c6ddadf, type: 3}
       - {fileID: -1529389872, guid: 150e0bb1eb28c884da2453389c6ddadf, type: 3}
       - {fileID: 1921441864, guid: 150e0bb1eb28c884da2453389c6ddadf, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -27, y: 0, z: 0}
@@ -6720,7 +6720,7 @@ Tilemap:
       - {fileID: 1415060949, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
       - {fileID: -112326327, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
       - {fileID: 1561110989, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -28, y: 5, z: 0}
@@ -7485,7 +7485,7 @@ Tilemap:
       - {fileID: 1415060949, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
       - {fileID: -112326327, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
       - {fileID: 1561110989, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -10, y: 16, z: 0}
@@ -7725,7 +7725,7 @@ Tilemap:
       - {fileID: 644816326, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
       - {fileID: -1847344910, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
       - {fileID: -172580703, guid: da21e1e45d3d57f4ab3501ee08e4c038, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: 17, z: 0}
@@ -18668,6 +18668,37 @@ Transform:
   - {fileID: 404195125}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1204087586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204087587}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204087587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204087586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.69, y: -0.41, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1211813792}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1211813787
 GameObject:
   m_ObjectHideFlags: 0
@@ -18704,6 +18735,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ennemy_Combat
   damage: 1
+  attackPoint: {fileID: 1204087587}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  weaponRange: 1.2
 --- !u!70 &1211813789
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18838,7 +18874,9 @@ Transform:
   m_LocalPosition: {x: 1.07337, y: -4.28485, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1204087587}
+  - {fileID: 1334149879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1211813793
@@ -18854,6 +18892,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ennemy_Moving
   speed: 2
+  attackRange: 1.25
+  attackCooldown: 2
+  playerDetectRange: 5
+  detectionPoint: {fileID: 1334149879}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!95 &1211813794
 Animator:
   serializedVersion: 7
@@ -18912,6 +18957,37 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 3.5565538, y: 0.07303429}
   m_Radius: 4.878972
+--- !u!1 &1334149878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1334149879}
+  m_Layer: 0
+  m_Name: DetectionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1334149879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334149878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.81, y: -0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1211813792}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339065530
 GameObject:
   m_ObjectHideFlags: 0
@@ -22376,7 +22452,7 @@ Tilemap:
       - {fileID: -2049342399, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
       - {fileID: 135631246, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
       - {fileID: 1913261620, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: 2, z: 0}
@@ -22464,7 +22540,7 @@ Tilemap:
       - {fileID: -1075906019, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
       - {fileID: -1714640341, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
       - {fileID: -775773293, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: 4, z: 0}
@@ -22629,7 +22705,7 @@ Tilemap:
       - {fileID: -1075906019, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
       - {fileID: -1714640341, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
       - {fileID: -775773293, guid: 677ab725fa0d6a84ab41c7ead082c7f9, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -19, y: 11, z: 0}
