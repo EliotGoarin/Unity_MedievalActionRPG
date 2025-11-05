@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5;
     public Rigidbody2D rb;
     public Animator anim;
     private bool isKnockedBack = false;
@@ -31,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("moveX", Mathf.Abs(moveX));
             anim.SetFloat("moveY", Mathf.Abs(moveY));
 
-            rb.linearVelocity = new Vector2(moveX, moveY) * speed;
+            rb.linearVelocity = new Vector2(moveX, moveY) * StatsManager.Instance.speed;
         }
 
     }

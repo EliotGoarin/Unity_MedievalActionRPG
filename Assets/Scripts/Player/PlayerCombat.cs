@@ -6,12 +6,8 @@ public class PlayerCombat : MonoBehaviour
     public float cooldown = 1;
     private float timer;
     public Transform attackPoint;
-    public float weaponRange = 1f;
     public LayerMask enemyLayer;
-    public int damage = 1;
-    public float knockbackForce = 10;
-    public float stunTime = 0.2f;
-    public float knockbackTime = 0.2f;
+
 
     void Update()
     {
@@ -32,16 +28,16 @@ public class PlayerCombat : MonoBehaviour
 
     public void DealDamage()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, StatsManager.Instance.weaponRange, enemyLayer);
 
         if (hitEnemies.Length >0)
         {
             EnnemyHealth ennemyHealth = hitEnemies[0].GetComponent<EnnemyHealth>();
             if (ennemyHealth != null)
             {
-                ennemyHealth.ChangeHealth(-damage);
+                ennemyHealth.ChangeHealth(-StatsManager.Instance.damage);
             }
-            hitEnemies[0].GetComponent<EnemyKnockback>().Knockback(transform, knockbackForce,knockbackTime, stunTime);
+            hitEnemies[0].GetComponent<EnemyKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce,StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime);
         }
     }
 
@@ -54,6 +50,6 @@ public class PlayerCombat : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
-        Gizmos.DrawWireSphere(attackPoint.position, weaponRange);
+        Gizmos.DrawWireSphere(attackPoint.position, StatsManager.Instance.weaponRange);
     }
 }
