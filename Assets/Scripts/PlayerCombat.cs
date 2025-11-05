@@ -9,7 +9,9 @@ public class PlayerCombat : MonoBehaviour
     public float weaponRange = 1f;
     public LayerMask enemyLayer;
     public int damage = 1;
-
+    public float knockbackForce = 10;
+    public float stunTime = 0.2f;
+    public float knockbackTime = 0.2f;
 
     void Update()
     {
@@ -39,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 ennemyHealth.ChangeHealth(-damage);
             }
+            hitEnemies[0].GetComponent<EnemyKnockback>().Knockback(transform, knockbackForce,knockbackTime, stunTime);
         }
     }
 
