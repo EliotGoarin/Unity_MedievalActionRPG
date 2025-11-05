@@ -7,9 +7,18 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
     private bool isKnockedBack = false;
     public int facingDirection = 1; // 1 for right, -1 for left
-    void FixedUpdate()
+
+    public PlayerCombat playerCombat;
+
+
+    void Update()
     {
-        if(isKnockedBack == false)
+        if (Input.GetButtonDown("Slash"))
+        {
+            playerCombat.Attack();
+        }
+        
+        if (isKnockedBack == false)
         {
             float moveX = Input.GetAxis("Horizontal");
             float moveY = Input.GetAxis("Vertical");
@@ -24,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
             rb.linearVelocity = new Vector2(moveX, moveY) * speed;
         }
+
     }
 
     void Flip()
